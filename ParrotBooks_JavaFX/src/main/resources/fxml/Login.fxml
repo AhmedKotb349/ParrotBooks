@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.parrotbooks.desktop.controllers.LoginController"
+      alignment="CENTER" spacing="14" styleClass="login-root">
+    <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+
+    <ImageView fitWidth="72" fitHeight="72" preserveRatio="true">
+        <image><Image url="@../images/logo.png"/></image>
+        <clip>
+            <javafx.scene.shape.Circle radius="36" centerX="36" centerY="36"/>
+        </clip>
+    </ImageView>
+    <Label text="Parrot Books" styleClass="login-title"/>
+    <Label text="Sales &amp; Distribution System" styleClass="login-subtitle"/>
+
+    <Label fx:id="errorLabel" styleClass="error-banner" visible="false" managed="false" wrapText="true"/>
+
+    <VBox spacing="4" styleClass="field-block">
+        <Label text="Username" styleClass="field-label"/>
+        <TextField fx:id="usernameField" text="sales"/>
+    </VBox>
+
+    <VBox spacing="4" styleClass="field-block">
+        <Label text="Password" styleClass="field-label"/>
+        <PasswordField fx:id="passwordField" text="password123"/>
+    </VBox>
+
+    <Button text="Sign In" styleClass="primary-button" maxWidth="Infinity" onAction="#handleLogin"/>
+
+    <Text text="Demo accounts (password123)" styleClass="hint-text"/>
+    <FlowPane hgap="6" vgap="6" alignment="CENTER">
+        <Button text="admin" styleClass="chip-button" onAction="#fillAdmin"/>
+        <Button text="sales" styleClass="chip-button" onAction="#fillSales"/>
+        <Button text="warehouse" styleClass="chip-button" onAction="#fillWarehouse"/>
+        <Button text="accounts" styleClass="chip-button" onAction="#fillAccounts"/>
+    </FlowPane>
+</VBox>

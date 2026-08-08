@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Responsive base rules — real @media queries tuned to common
+   device breakpoints, layered on top of Tailwind's responsive
+   utility classes used throughout the components.
+   ============================================================ */
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Small phones (≤ 480px): tighten base font size and spacing so
+   nothing has to horizontally scroll on a narrow screen. */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* Phones/small tablets in portrait (481px–767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+/* Tablets (768px–1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  html {
+    font-size: 15.5px;
+  }
+}
+
+/* Desktop (≥ 1024px) */
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Any touch device: give tap targets a bit more breathing room */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  select,
+  input[type='number'],
+  a {
+    min-height: 40px;
+  }
+}
+
+/* Landscape phones — reclaim vertical space from the sticky header */
+@media (max-height: 420px) and (orientation: landscape) {
+  header {
+    height: 44px !important;
+  }
+}
+
+/* Tables need to scroll horizontally on narrow screens instead of
+   squeezing columns unreadably thin. */
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent the whole page from ever scrolling sideways, e.g. from an
+   oversized fixed-width element slipping in during development. */
+@media (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+  }
+}

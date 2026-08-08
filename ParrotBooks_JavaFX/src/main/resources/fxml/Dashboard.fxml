@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.parrotbooks.desktop.controllers.DashboardController"
+            styleClass="app-root">
+
+    <top>
+        <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="8">
+            <padding><Insets top="10" right="20" bottom="10" left="20"/></padding>
+            <ImageView fitWidth="28" fitHeight="28" preserveRatio="true">
+                <image><Image url="@../images/logo.png"/></image>
+                <clip>
+                    <javafx.scene.shape.Circle radius="14" centerX="14" centerY="14"/>
+                </clip>
+            </ImageView>
+            <Label text="Parrot Books" styleClass="topbar-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="whoLabel" styleClass="topbar-who"/>
+            <Button text="Log out" styleClass="secondary-button" onAction="#handleLogout"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="14">
+            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+            <Label text="New Sales Order" styleClass="page-title"/>
+            <FlowPane fx:id="categoryPane" hgap="6" vgap="6"/>
+            <ScrollPane fitToWidth="true" styleClass="catalog-scroll">
+                <FlowPane fx:id="bookGrid" hgap="14" vgap="14">
+                    <padding><Insets top="4" right="4" bottom="20" left="4"/></padding>
+                </FlowPane>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox fx:id="orderPanel" spacing="10" styleClass="order-panel" prefWidth="320">
+            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+        </VBox>
+    </right>
+</BorderPane>
